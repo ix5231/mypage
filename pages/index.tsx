@@ -18,28 +18,30 @@ const Index = () => {
             .onSnapshot((doc) => {
                 setAccessCount(doc.get('toppage'));
             });
-    }, [])
+    }, []);
 
-    return <div>
-        <Head>
-            <title>Diminished 2nd</title>
-        </Head>
+    return  (
+        <div>
+            <Head>
+                <title>Diminished 2nd</title>
+            </Head>
 
-        <article id="access-counter">
-            <p>手動アクセスカウンター: {accessCount}</p>
-            <button onClick={
-                () => {
-                    setAccessCount("Loading...");
-                    addCount();
-                }
-            } >Click Here!</button>
-        </article>
+            <article id="access-counter">
+                <p>手動アクセスカウンター: {accessCount}</p>
+                <button onClick={
+                    () => {
+                        setAccessCount("Loading...");
+                        addCount();
+                    }
+                } >Click Here!</button>
+            </article>
 
-        <article id="contents">
-            <h1>おしながき</h1>
-            <a href="https://mag.ix5231.xyz">磁束のアレ</a>
-        </article>
-    </div>;
+            <article id="contents">
+                <h1>おしながき</h1>
+                <a href="https://mag.ix5231.xyz">磁束のアレ</a>
+            </article>
+        </div>
+    );
 }
 
 export default Index;
