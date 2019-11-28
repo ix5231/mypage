@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import firestore from '../src/api';
@@ -38,10 +39,17 @@ const Index = () => {
 
             <article id="contents">
                 <h1>おしながき</h1>
-                <a href="https://mag.ix5231.xyz">磁束のアレ</a>
+                <ul>
+                    <li>
+                        <a href="https://mag.ix5231.xyz">磁束のアレ</a>
+                    </li>
+                    <li>
+                        <Link href='/worktime'><a>働いてやってもいい時間計算ツール</a></Link>
+                    </li>
+                </ul>
             </article>
         </div>
     );
-}
+};
 
 export default Index;
