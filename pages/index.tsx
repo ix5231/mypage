@@ -1,8 +1,9 @@
 import Link from 'next/link';
-import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import firestore from '../src/api';
 import firebase from 'firebase/app';
+import Layout from '../layout/layout'
+import { Button } from 'semantic-ui-react'
 
 function addCount(): Promise<void> {
     const increment = firebase.firestore.FieldValue.increment(1);
@@ -22,19 +23,19 @@ const Index = () => {
     }, []);
 
     return  (
-        <div>
-            <Head>
-                <title>Diminished 2nd</title>
-            </Head>
-
+        <Layout>
             <article id="access-counter">
                 <p>手動アクセスカウンター: {accessCount}</p>
-                <button onClick={
-                    () => {
-                        setAccessCount("Loading...");
-                        addCount();
+                <Button
+                    onClick={
+                        () => {
+                            setAccessCount("Loading...");
+                            addCount();
+                        }
                     }
-                } >Click Here!</button>
+                >
+                    Click Here!
+                </Button>
             </article>
 
             <article id="contents">
@@ -48,7 +49,7 @@ const Index = () => {
                     </li>
                 </ul>
             </article>
-        </div>
+        </Layout>
     );
 };
 

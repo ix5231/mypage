@@ -1,37 +1,20 @@
-const withCSS = require('@zeit/next-css');
+const withCSS = require('@zeit/next-css')
 
-const withAssetRelocator = (nextConfig = {}) => {
-    return Object.assign({}, nextConfig, {
-      webpack(config, options) {
-        const { isServer } = options
-  
-        if (isServer) {
-          config.node = Object.assign({}, config.node, {
-            __dirname: false,
-            __filename: false,
-          })
-  
-          config.module.rules.unshift({
-            test: /\.(m?js|node)$/,
-            parser: { amd: false },
-            use: {
-              loader: '@zeit/webpack-asset-relocator-loader',
-              options: {
-                outputAssetBase: 'assets',
-                existingAssetNames: [],
-                wrapperCompatibility: true,
-                escapeNonAnalyzableRequires: true,
-              },
-            },
-          })
-        }
-  
-        if (typeof nextConfig.webpack === 'function') {
-          return nextConfig.webpack(config, options)
-        }
-        return config
+module.exports = withCSS({
+  target: 'serverless',
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.(png|svg|eot|otf|ttf|woff|woff2)$/,
+      use: {
+        loader: 'url-loader',
+        options: {
+          limit: 8192,
+          publicPath: '/_next/static/',
+          outputPath: 'static/',
+          name: '[name].[ext]',
+        },
       },
     })
-  }
-
-module.exports = withAssetRelocator(withCSS({}));
+    return config
+  },
+})
