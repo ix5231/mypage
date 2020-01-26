@@ -47,6 +47,9 @@ const Index = () => {
                     <li>
                         <Link href='/worktime'><a>働いてやってもいい時間計算ツール</a></Link>
                     </li>
+                    <li>
+                        <Link href='/translator'><a>しゃべる翻訳</a></Link>
+                    </li>
                 </ul>
             </article>
         </Layout>

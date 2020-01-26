@@ -26,13 +26,16 @@
     "next": "^9.0.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "semantic-ui-react": "^0.88.1"
+    "react-use": "^13.22.0",
+    "semantic-ui-react": "^0.88.1",
+    "superagent": "^5.2.1"
   },
   "devDependencies": {
     "@types/node": "^12.7.0",
     "@types/react": "^16.8.24",
     "@types/react-dom": "^16.8.5",
     "@types/styled-jsx": "^2.2.8",
+    "@types/superagent": "^4.1.4",
     "css-loader": "^3.2.0",
     "file-loader": "^5.0.2",
     "typescript": "^3.5.3",
